@@ -1,0 +1,9 @@
+<input (keydown.enter)="this.addItem()" [(ngModel)]="this.theItem"/>
+<div *ngFor="let stage of this.stages; let i = index;">
+  {{stage}}
+  <div *ngFor="let elem of this.stagesAndElements.get(stage)">
+    <button (contextmenu)="this.moveStep($event, false, i, elem)"
+            (click)="this.moveStep($event, true, i, elem)"
+            id="{{elem['id']}}">{{elem['value']}}</button>
+  </div>
+</div>
